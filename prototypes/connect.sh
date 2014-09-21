@@ -4,7 +4,13 @@
 ST_ADDRESS='BC:6A:29:AB:7B:0B'
 
 
-gatttool -b $ST_ADDRESS --char-desc
+#~ gatttool -b $ST_ADDRESS --char-desc
+
+gatttool -b $ST_ADDRESS  --char-write-req -a 0x29 -n 01  &&
+gatttool -b $ST_ADDRESS  --char-write-req -a 0x26 -n 0100  &&
+gatttool -b $ST_ADDRESS  --char-write-req -a 0x31 -n 01  &&
+gatttool -b $ST_ADDRESS  --char-write-req -a 0x2e -n 0100  --listen
+
 
 #~ gatttool -b $ST_ADDRESS --listen 0x25
 #~ gatttool -b $ST_ADDRESS  --char-write 0x29 0x01
